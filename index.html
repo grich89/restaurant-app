@@ -28,17 +28,16 @@
 						<th>Name</th>
 						<th>Day</th>
 					</thead>
-					<tbody>
-						<script id="reservation-template" type="text/x-handlebars-template">
-							<tr>
-								<td>{{name}}</td>
-								<td>{{day}}</td>
-							</tr>
-						</script>
-					</tbody>
+					<tbody class="reservation-list"></tbody>
 				</table>
 			</div>
 		</div>
+		<script id="reservation-template" type="text/x-handlebars-template">
+			<tr>
+				<td>{{name}}</td>
+				<td>{{day}}</td>
+			</tr>
+		</script>
 		<div class="dine-with-us">
 			<h2>Come Dine With Us</h2>
 			<div id="map"></div>
@@ -57,9 +56,6 @@
 	<!-- jquery -->
 	<script src="js/jquery.min.js"></script>
 
-	<!-- google maps api -->
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAedMm_E7dW8zOBQUco6R6kfYk7bWx_7go&callback=initMap" type="text/javascript"></script>
-
 	<!-- firebase -->
 	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
@@ -68,5 +64,9 @@
 
 	<!-- custom js -->
 	<script src="js/main.js"></script>
+
+	<!-- google maps api -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvPbRcY7yzxrGo4JKRk0d0LnNzCqO2mx4&callback=initMap" type="text/javascript"></script>
+	
 </body>
 </html>

@@ -1,10 +1,3 @@
-function initMap() {
-	var map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 40.8054491, lng: -73.9654415},
-		zoom: 20,
-	}); 
-}
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyDlijh5u5tcgxDIfnCTlwNCWM_aVcrGFSY",
@@ -25,7 +18,6 @@ var database = firebase.database();
 });*/
 
 var reservationsReference = database.ref('reservations');
-console.log(reservationsReference);
 
 $('#makeReservation').on('submit', function(e) {
 	e.preventDefault();
@@ -35,10 +27,45 @@ $('#makeReservation').on('submit', function(e) {
 
 	// push reservationData to database
   	reservationsReference.push(reservationData);
+
+  	// get the new reservation
+  	getReservations();
 });
 
 function getReservations() {
+
+	// empty the reservation list
+	$('.reservation-list').empty();
+
 	reservationsReference.on('child_added', snapshot => {
-		console.log('child_added');
+
+		// retrieve the day and name from firebase
+		var resDay = snapshot.val().day;
+		var resName = snapshot.val().name;
+
+		// add the values to the handlebars template
+		var source = $('#reservation-template').html();
+		var template = Handlebars.compile(source);
+		var context = {
+			name: resName, 
+			day: resDay
+		};
+		var reservationItem = template(context);
+
+		// append the new reservation to the list
+		$('.reservation-list').prepend(reservationItem);
+
 	});
+}
+
+// get the existing reservations on page load
+getReservations();
+
+// create a new google map
+function initMap() {
+	var map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: 40.8054491, lng: -73.9654415},
+		zoom: 10,
+		scrollwheel: false
+	}); 
 }
