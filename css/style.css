@@ -55,6 +55,11 @@ img {
 	background: #666;
 }
 
+#makeReservation p.error {
+	display: none;
+	color: red;
+}
+
 .existing-reservations {
 	flex: 0 1 50%;
 	text-align: center;
@@ -68,6 +73,27 @@ img {
 .existing-reservations table, th, td {
 	border: 1px solid #999;
 	text-align: left;
+}
+
+span.remove {
+	width: 20px;
+	height: 20px;
+	background: red;
+	color: #fff;
+	border-radius: 100%;
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+}
+
+span.remove:before {
+	content: 'x';
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	left: 0;
+	top: -2px;
 }
 
 th {
@@ -90,19 +116,4 @@ th, td {
 
 #map {
 	height: 500px;
-}
-
-ul.reviews {
-	padding-left: 5em;
-	list-style: none;
-}
-
-.review p {
-	font-size: 1.5em;
-}
-
-.review p span.author {
-	display: block;
-	margin-top: 1em;
-	font-size: .75em;
 }

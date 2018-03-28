@@ -3,7 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <link rel="stylesheet" href="css/style.css">
-   <title>Sublime Project</title>
+   <title>Monk's Cafe | Reservations</title>
 </head>
 <body>
 	<div class="container">
@@ -17,8 +17,9 @@
 				<h3>Make A Reservation</h3>
 				<form id="makeReservation">
 					<input type="text" id="reservation-name" placeholder="Name" />
-					<input type="date" id="reservation-day" placeholder="Day" />
+					<input type="date" id="reservation-day" value="" />
 					<button type="submit">Confirm Reservation</button>
+					<p class="error">Please fill out the required fields.</p>
 				</form>
 			</div>
 			<div class="existing-reservations">
@@ -26,30 +27,22 @@
 				<table>
 					<thead>
 						<th>Name</th>
-						<th>Day</th>
+						<th colspan="2">Day</th>
 					</thead>
 					<tbody class="reservation-list"></tbody>
 				</table>
 			</div>
 		</div>
 		<script id="reservation-template" type="text/x-handlebars-template">
-			<tr>
+			<tr id={{id}}>
 				<td>{{name}}</td>
 				<td>{{day}}</td>
+				<td><span class="remove"></span></td>
 			</tr>
 		</script>
 		<div class="dine-with-us">
 			<h2>Come Dine With Us</h2>
 			<div id="map"></div>
-		</div>
-		<div id="reviews">
-			<img src="images/jerry.jpg" alt="Jerry Seinfeld" />
-			<ul class="reviews">
-				<li class="review">
-					<p>"Big lettuce, big carrots, tomatoes like volleyballs."<br />
-					<span class="author">- Jerry Seinfeld, on The BIG Salad</span></p>
-				</li>
-			</ul>
 		</div>
 	</div>
 
