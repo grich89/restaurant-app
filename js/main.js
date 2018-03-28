@@ -1,4 +1,4 @@
-// Initialize Firebase
+// initialize Firebase
 var config = {
     apiKey: "AIzaSyDlijh5u5tcgxDIfnCTlwNCWM_aVcrGFSY",
     authDomain: "reservation-site-1ad6d.firebaseapp.com",
@@ -15,6 +15,7 @@ var database = firebase.database();
 
 var reservationsReference = database.ref('reservations');
 
+// grab reservations from firebase
 function getReservations() {
 
 	// empty the reservation list
